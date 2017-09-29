@@ -55,8 +55,9 @@ RUN apt-get update && apt-get install -y \
  && mv node node_old \
  &&	ln -s /usr/share/node-v6.9.1/bin/node node \
  && mkdir /etc/kibana \
- && cp config/kibana.yml /etc/kibana \
+ && mv config/kibana.yml /etc/kibana \
  && mv /root/kibana-5.4.0/ /usr/share/kibana \
+ && ln -s /etc/kibana/kibana.yml /usr/share/kibana/config/kibana.yml
  
 # Cleanup Cache data , unused packages and source files
  && apt-get remove -y \
